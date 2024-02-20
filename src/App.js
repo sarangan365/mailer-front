@@ -4,9 +4,9 @@ import axios from 'axios';
 import { useSnackbar } from 'notistack';
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import AppliedJobsPage from './AppliedJobsPage';
-import ApplyPage from './ApplyPage';
 import NavBar from './NavBar';
+import AppliedJobsPage from './Pages/AppliedJobsPage';
+import ApplyPage from './Pages/ApplyPage';
 
 const BASE_URL = 'https://mailer-c8c7.onrender.com';
 

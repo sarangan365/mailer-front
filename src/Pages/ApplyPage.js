@@ -1,7 +1,7 @@
 // ApplyPage.js
 import { Typography } from '@mui/material';
 import React from 'react';
-import JobApplicationForm from './JobApplicationForm';
+import JobApplicationForm from '../Components/JobApplicationForm';
 
 const ApplyPage = ({ onSubmit }) => {
    return (

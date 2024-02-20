@@ -1,7 +1,7 @@
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import JobCard from './JobCard';
+import JobCard from '../Components/JobCard';
 
 const BASE_URL = 'https://mailer-c8c7.onrender.com'; // Define the base URL here
 
