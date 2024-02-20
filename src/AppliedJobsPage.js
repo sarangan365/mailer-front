@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import JobCard from './JobCard';
 
-const BASE_URL = 'http://localhost:3000'; // Define the base URL here
+const BASE_URL = 'https://mailer-c8c7.onrender.com'; // Define the base URL here
 
 const AppliedJobsPage = ({ onDelete }) => {
    const [appliedJobs, setAppliedJobs] = useState([]);
