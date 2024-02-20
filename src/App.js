@@ -8,12 +8,13 @@ import AppliedJobsPage from './AppliedJobsPage';
 import ApplyPage from './ApplyPage';
 import NavBar from './NavBar';
 
-const BASE_URL = 'https://mailer-c8c7.onrender.com';
+const BASE_URL = 'http://localhost:3000';
 
 const App = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (formData) => {
+    console.log("formdata", formData)
     try {
       await axios.post(`${BASE_URL}/sendEmail`, formData, {
         headers: {
