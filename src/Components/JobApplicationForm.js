@@ -1,4 +1,4 @@
-import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, FormControlLabel, Switch, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 const JobApplicationForm = ({ onSubmit }) => {
@@ -6,15 +6,28 @@ const JobApplicationForm = ({ onSubmit }) => {
    const [companyName, setCompanyName] = useState('');
    const [postName, setPostName] = useState('');
    const [recruiterName, setRecruiterName] = useState('');
+   const [applicantName, setApplicantName] = useState('');
+   const [gmailUser, setGmailUser] = useState(''); // State for Gmail user
+   const [gmailPass, setGmailPass] = useState(''); // State for Gmail password
    const [resume, setResume] = useState(null);
    const [loading, setLoading] = useState(false);
+   const [applyFromOwnMail, setApplyFromOwnMail] = useState(false); // State for toggle switch
 
    const handleSubmit = async (e) => {
       e.preventDefault();
       setLoading(true);
 
       try {
-         await onSubmit({ email, companyName, postName, recruiterName, resume });
+         await onSubmit({
+            email,
+            companyName,
+            postName,
+            recruiterName,
+            applicantName,
+            gmailUser: applyFromOwnMail ? gmailUser : null, // Include gmailUser only if applying from own mail
+            gmailPass: applyFromOwnMail ? gmailPass : null, // Include gmailPass only if applying from own mail
+            resume
+         });
       } catch (error) {
          console.error(error);
       } finally {
@@ -80,6 +93,36 @@ const JobApplicationForm = ({ onSubmit }) => {
             onChange={(e) => setRecruiterName(e.target.value)}
             required
          />
+         <TextField
+            label="Your Name"
+            fullWidth
+            value={applicantName}
+            onChange={(e) => setApplicantName(e.target.value)}
+            required
+         />
+         <FormControlLabel
+            control={<Switch checked={applyFromOwnMail} onChange={(e) => setApplyFromOwnMail(e.target.checked)} />}
+            label="Apply from your own mail"
+         />
+         {applyFromOwnMail && (
+            <>
+               <TextField
+                  label="Gmail User"
+                  fullWidth
+                  value={gmailUser}
+                  onChange={(e) => setGmailUser(e.target.value)}
+                  required
+               />
+               <TextField
+                  label="Gmail Password"
+                  fullWidth
+                  type="password"
+                  value={gmailPass}
+                  onChange={(e) => setGmailPass(e.target.value)}
+                  required
+               />
+            </>
+         )}
          <input
             type="file"
             onChange={handleFileChange}

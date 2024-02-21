@@ -31,6 +31,7 @@ const JobCard = ({ job, onUpdateStatus, onDelete }) => {
          <CardContent>
             <Typography variant="h6">{job.recruiterName}</Typography>
             <Typography>Email: {job.email}</Typography>
+            <Typography>Applicant Name:{job.applicantName}</Typography>
             <Typography>Company: {job.companyName}</Typography>
             <Typography>Role: {job.postName}</Typography>
             <Typography sx={{ color: getStatusColor(job.status) }}>Status: {job.status}</Typography>

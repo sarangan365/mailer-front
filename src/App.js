@@ -8,7 +8,8 @@ import NavBar from './NavBar';
 import AppliedJobsPage from './Pages/AppliedJobsPage';
 import ApplyPage from './Pages/ApplyPage';
 
-const BASE_URL = 'https://mailer-c8c7.onrender.com';
+// const BASE_URL = 'https://mailer-c8c7.onrender.com';
+const BASE_URL = 'http://localhost:3000';
 
 const App = () => {
   const { enqueueSnackbar } = useSnackbar();
